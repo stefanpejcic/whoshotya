@@ -1,0 +1,30 @@
+services:
+  whoshotya:
+    build: .
+    container_name: whoshotya
+    restart: always
+    command: >
+      sh -c "python app.py"
+    stop_signal: SIGINT
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: "1.0G"
+          pids: 100
+    volumes:
+      - html_data:/var/www/html/
+
+networks:
+  www:
+    driver: bridge
+    labels:
+      description: "This network is used for communication between website services (webserver to apps)."
+      purpose: "internal"
+
+volumes: 
+  html_data:
+    driver: local
+    labels:
+      description: "This volume holds the /var/www/html/ directory."
+      purpose: "storage"
