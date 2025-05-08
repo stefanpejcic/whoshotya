@@ -1,6 +1,7 @@
 services:
   whoshotya:
     build: .
+    image: openpanel/whoshotya
     container_name: whoshotya
     restart: always
     command: >
