@@ -1,2 +1,2 @@
 # whoshotya
-SImple website screenshots with Playwright
+Simple website screenshots with Playwright
